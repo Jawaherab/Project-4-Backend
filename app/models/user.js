@@ -11,7 +11,8 @@ const userSchema = new mongoose.Schema({
     required: true
   },
   token: String
-}, {
+},
+ {
   timestamps: true,
   toObject: {
     // remove `hashedPassword` field when we call `.toObject`
@@ -22,10 +23,10 @@ const userSchema = new mongoose.Schema({
   }
 })
 
-userSchema.virtual('examples', {
-  ref: 'Example',
-  localField: '_id',
-  foreignField: 'owner'
-});
+// userSchema.virtual('products', {
+//   ref: 'product',
+//   localField: '_id',
+//   foreignField: 'owner'
+// });
 
 module.exports = mongoose.model('User', userSchema)
